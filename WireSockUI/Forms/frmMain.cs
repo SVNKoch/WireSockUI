@@ -233,6 +233,7 @@ namespace WireSockUI.Forms
         /// <remarks>This updates both the actual tunnel state and all related UI elements.</remarks>
         private void UpdateState(ConnectionState state, bool notify = true)
         {
+            _wiresock.PrintLog("UpdateState: " + state + " & notify: " + notify);
             var btnActivate = layoutInterface.Controls["btnActivate"] as Button;
             var imgStatus = layoutInterface.Controls.Find("imgStatus", true).FirstOrDefault() as PictureBox;
             var txtStatus = layoutInterface.Controls.Find("txtStatus", true).FirstOrDefault() as TextBox;
@@ -511,7 +512,7 @@ namespace WireSockUI.Forms
             else
             {
                 // Update the state to disconnected.
-                UpdateState(ConnectionState.Disconnected);
+                UpdateState(ConnectionState.Disconnected, false);
             }
 
             // Set the tunnel mode based on the application settings.
