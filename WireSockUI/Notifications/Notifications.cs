@@ -46,18 +46,30 @@ namespace WireSockUI.Notifications
             return xml;
         }
 
-        public static void Notify(string title, string body)
+        public static void Notify(string title, string body, WireSockManager _wiresock = null)
         {
             var context = WindowsApplicationContext.FromCurrentProcess();
+            logIfPossible()
+            logIfPossible(_wiresock, "NOTFIYING context: " + context);
             var notifier = ToastNotificationManager.CreateToastNotifier(context.AppUserModelId);
+            logIfPossible(_wiresock, "NOTFIYING notifier: " + notifier);
 
             var notification = new ToastNotification(GetXml(title, body));
+            logIfPossible(_wiresock, "NOTFIYING notification: " + notification);
+
 
             notification.Activated += Notification_Activated;
             notification.Dismissed += Notification_Dismissed;
             notification.Failed += Notification_Failed;
 
             notifier.Show(notification);
+        }
+
+        private static void logIfPossible(x manager, string message)
+        {
+            if (manager != null){
+                manager.PrintLog(message);
+            }
         }
 
         private static void Notification_Failed(ToastNotification sender, ToastFailedEventArgs args)
