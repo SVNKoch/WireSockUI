@@ -139,8 +139,8 @@ namespace WireSockUI.Forms
             this.cmiDeactivateTunnel.Name = "cmiDeactivateTunnel";
             this.resMenu.SetResourceKey(this.cmiDeactivateTunnel, null);
             this.cmiDeactivateTunnel.Size = new System.Drawing.Size(210, 22);
-            this.cmiDeactivateTunnel.Text = "Manage tunnels...";
-            this.cmiDeactivateTunnel.Click += new System.EventHandler(this.OnFormShow);
+            this.cmiDeactivateTunnel.Text = "Deactivate tunnel";
+            this.cmiDeactivateTunnel.Click += new System.EventHandler(this.OnDisconnectClick);
             // 
             // cmiManageTunnels
             // 

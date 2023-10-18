@@ -347,6 +347,11 @@ namespace WireSockUI.Forms
                     MessageBoxIcon.Error);
         }
 
+        private void OnDisconnectClick(object sender, EventArgs e)
+        {
+            UpdateState(ConnectionState.Disconnected);
+        }
+
         private void OnExitClick(object sender, EventArgs e)
         {
             Application.Exit();
