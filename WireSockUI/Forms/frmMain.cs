@@ -502,7 +502,7 @@ namespace WireSockUI.Forms
                             reconnect = true;
 
                     // Update the state to disconnected.
-                    UpdateState(ConnectionState.Disconnected);
+                    UpdateState(ConnectionState.Disconnected, true, _wiresock);
 
                     // Proceed with reconnecting if the reconnect flag is set.
                     if (!reconnect) return;
@@ -512,7 +512,7 @@ namespace WireSockUI.Forms
             else
             {
                 // Update the state to disconnected.
-                UpdateState(ConnectionState.Disconnected, false);
+                UpdateState(ConnectionState.Disconnected, false, _wiresock);
             }
 
             // Set the tunnel mode based on the application settings.
