@@ -289,7 +289,7 @@ namespace WireSockUI.Forms
 
                     if (notify)
                         Notifications.Notifications.Notify(Resources.ToastActiveTitle,
-                            string.Format(Resources.ToastActiveMessage, _wiresock.ProfileName));
+                            string.Format(Resources.ToastActiveMessage, _wiresock.ProfileName), _wiresock);
                     break;
                 case ConnectionState.Disconnected:
                     btnActivate.Text = Resources.ButtonInactive;
@@ -321,7 +321,7 @@ namespace WireSockUI.Forms
 
                     if (notify)
                         Notifications.Notifications.Notify(Resources.ToastInactiveTitle,
-                            string.Format(Resources.ToastInactiveMessage, _wiresock.ProfileName));
+                            string.Format(Resources.ToastInactiveMessage, _wiresock.ProfileName), _wiresock);
 
                     _wiresock.Disconnect();
                     break;
@@ -502,7 +502,7 @@ namespace WireSockUI.Forms
                             reconnect = true;
 
                     // Update the state to disconnected.
-                    UpdateState(ConnectionState.Disconnected);
+                    UpdateState(ConnectionState.Disconnected, true);
 
                     // Proceed with reconnecting if the reconnect flag is set.
                     if (!reconnect) return;
