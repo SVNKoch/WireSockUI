@@ -482,6 +482,8 @@ namespace WireSockUI.Forms
         /// <param name="e">The event arguments containing information about the event.</param>
         private void OnProfileClick(object sender, EventArgs e)
         {
+            // PrintLog()
+            _wiresock.PrintLog("OnProfileClick: " + sender + " & " + e + "; connect status: " + _wiresock.Connected);
             // Return if no profile is selected in the list.
             if (lstProfiles.SelectedItems.Count == 0) return;
 

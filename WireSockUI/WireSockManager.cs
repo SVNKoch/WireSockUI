@@ -181,7 +181,7 @@ namespace WireSockUI
         ///     Appends the specified message to the log queue to process control on the UI thread.
         /// </summary>
         /// <param name="message">The message to append to the log queue.</param>
-        private void PrintLog(string message)
+        public void PrintLog(string message)
         {
             _logQueue.Add(new LogMessage { Message = message });
         }
