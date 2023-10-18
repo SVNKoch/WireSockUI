@@ -499,50 +499,25 @@ namespace WireSockUI.Forms
                     // Proceed with reconnecting if the reconnect flag is set.
                     if (!reconnect) return;
 
-                    // Set the tunnel mode based on the application settings.
-                    _wiresock.TunnelMode = Settings.Default.UseAdapter
-                        ? WireSockManager.Mode.VirtualAdapter
-                        : WireSockManager.Mode.Transparent;
-
-                    // Get the selected profile.
-                    var profile = lstProfiles.SelectedItems[0].Text;
-
-                    // Connect to the selected profile and update the state to connecting if successful.
-                    if (_wiresock.Connect(profile))
-                        UpdateState(ConnectionState.Connecting);
-                }
-                else
-                {
-                    // Set the tunnel mode based on the application settings.
-                    _wiresock.TunnelMode = Settings.Default.UseAdapter
-                        ? WireSockManager.Mode.VirtualAdapter
-                        : WireSockManager.Mode.Transparent;
-
-                    // Get the selected profile.
-                    var profile = lstProfiles.SelectedItems[0].Text;
-
-                    // Connect to the selected profile and update the state to connecting if successful.
-                    if (_wiresock.Connect(profile))
-                        UpdateState(ConnectionState.Connecting);
                 }
             }
             else
             {
                 // Update the state to disconnected.
                 UpdateState(ConnectionState.Disconnected);
-
-                // Set the tunnel mode based on the application settings.
-                _wiresock.TunnelMode = Settings.Default.UseAdapter
-                    ? WireSockManager.Mode.VirtualAdapter
-                    : WireSockManager.Mode.Transparent;
-
-                // Get the selected profile.
-                var profile = lstProfiles.SelectedItems[0].Text;
-
-                // Connect to the selected profile and update the state to connecting if successful.
-                if (_wiresock.Connect(profile))
-                    UpdateState(ConnectionState.Connecting);
             }
+
+            // Set the tunnel mode based on the application settings.
+            _wiresock.TunnelMode = Settings.Default.UseAdapter
+                ? WireSockManager.Mode.VirtualAdapter
+                : WireSockManager.Mode.Transparent;
+
+            // Get the selected profile.
+            var profile = lstProfiles.SelectedItems[0].Text;
+
+            // Connect to the selected profile and update the state to connecting if successful.
+            if (_wiresock.Connect(profile))
+                UpdateState(ConnectionState.Connecting);
         }
 
         private void OnWireSockLogMessage(WireSockManager.LogMessage logMessage)
