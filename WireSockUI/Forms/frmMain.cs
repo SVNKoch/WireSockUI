@@ -483,7 +483,7 @@ namespace WireSockUI.Forms
             if (e != EventArgs.Empty)
             {
                 // Check if the current state is connected or connecting.
-                if (_currentState == ConnectionState.Connected || _currentState == ConnectionState.Connecting)
+                if (_wiresock.Connected)
                 {
                     var reconnect = false;
 
@@ -503,7 +503,7 @@ namespace WireSockUI.Forms
             else
             {
                 // Update the state to disconnected.
-                UpdateState(ConnectionState.Disconnected);
+                UpdateState(ConnectionState.Disconnected, false);
             }
 
             // Set the tunnel mode based on the application settings.
