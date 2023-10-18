@@ -136,6 +136,7 @@ namespace WireSockUI.Forms
             // 
             // cmiDeactivateTunnel
             // 
+            this.cmiDeactivateTunnel.Enabled = false;
             this.cmiDeactivateTunnel.Name = "cmiDeactivateTunnel";
             this.resMenu.SetResourceKey(this.cmiDeactivateTunnel, null);
             this.cmiDeactivateTunnel.Size = new System.Drawing.Size(210, 22);
