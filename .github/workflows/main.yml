@@ -4,6 +4,7 @@ on:
   push:
     tags:
       - '*'
+  workflow_dispatch:
 
 jobs:
   build-and-package:
@@ -82,5 +83,4 @@ jobs:
           artifacts: 'artifacts/**/*.zip'
           name: 'WireSockUI-${{ github.ref_name }}'
           tag: ${{ github.ref_name }}
-          token: ${{ secrets.MY_GITHUB_PAT }}
           skipIfReleaseExists: true
