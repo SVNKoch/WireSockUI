@@ -48,6 +48,7 @@ namespace WireSockUI.Notifications
 
         public static void Notify(string title, string body)
         {
+            return;
             var context = WindowsApplicationContext.FromCurrentProcess();
             var notifier = ToastNotificationManager.CreateToastNotifier(context.AppUserModelId);
 
